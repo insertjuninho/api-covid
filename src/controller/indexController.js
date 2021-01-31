@@ -4,7 +4,11 @@ exports.index = (req,res) => {
 
 request('http://api.covidtracking.com/v1/status.json', function (error, response, body) {
 
-    var res = JSON.parse(body)
-    console.log('body:', res); 
-});
+    let res  = JSON.parse(body)
+    
+    for (let i = 1; i < 7; i++) {
+         var result = i * res.runNumber
+            console.log("DAY = "+i + ":", result)
+        }
+  });
 }
